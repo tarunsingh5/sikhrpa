@@ -5,74 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sikh Rifle and Pistol Association</title>
     <style>
-        /* SRPA Brand Colors and Base Styles */
+        /* Modern CSS Variables & Reset */
         :root {
             --navy-blue: #001F3F;
             --metallic-gold: #D4AF37;
             --steel-gray: #708090;
             --pure-white: #FFFFFF;
+            --light-bg: #f4f7f6;
         }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: #333;
-            background-color: var(--pure-white);
+            background-color: var(--light-bg);
             line-height: 1.6;
         }
-        h1, h2, h3 {
-            color: var(--navy-blue);
-        }
         
-        /* Header & Navigation */
-        header {
-            background-color: var(--navy-blue);
-            color: var(--metallic-gold);
-            padding: 1.5rem 0;
+        /* Navigation / Header */
+        nav {
+            background-color: var(--pure-white);
+            padding: 1rem 5%;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav img { height: 60px; margin-right: 20px; }
+        nav h1 { color: var(--navy-blue); font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #003366 100%);
+            color: var(--pure-white);
             text-align: center;
-            border-bottom: 4px solid var(--metallic-gold);
+            padding: 6rem 2rem;
+            border-bottom: 5px solid var(--metallic-gold);
         }
-        header h1 {
-            color: var(--metallic-gold);
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
+        .hero h2 { font-size: 3rem; margin-bottom: 1rem; color: var(--metallic-gold); }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+
+        /* Main Container & Sections */
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+        .section-title {
+            text-align: center;
+            color: var(--navy-blue);
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
         }
-        
-        /* Main Container */
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 2rem;
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--metallic-gold);
+            margin: 10px auto 0;
         }
 
-        /* Sections */
-        .section-box {
-            background: #f9f9f9;
-            border-left: 5px solid var(--steel-gray);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        /* Split Layout for Safety Rules */
+        .split-section {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            background: var(--pure-white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 4rem;
         }
+        .split-text { flex: 1; }
+        .split-image { flex: 1; text-align: center; }
+        .split-image img { max-width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         
-        /* Table Styles for Safety Rules */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
+        /* Modern Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+        th, td { padding: 15px; border-bottom: 1px solid #eee; text-align: left; }
+        th { background-color: var(--navy-blue); color: var(--pure-white); }
+        tr:hover { background-color: #f9f9f9; }
+
+        /* Resource Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
-        th, td {
-            padding: 12px;
-            border-bottom: 1px solid var(--steel-gray);
+        .card {
+            background: var(--pure-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 250px; object-fit: cover; border-bottom: 3px solid var(--steel-gray); }
+        .card-content { padding: 1.5rem; }
+        .card-content h3 { color: var(--navy-blue); margin-bottom: 0.5rem; }
+        .card-content p { color: #666; font-size: 0.95rem; margin-bottom: 1rem; }
+        .btn {
+            display: inline-block;
+            background: var(--navy-blue);
+            color: var(--pure-white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: var(--metallic-gold); color: var(--navy-blue); }
+
+        /* Contact Form */
+        .contact-section {
+            background: var(--pure-white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 4rem;
+            border-top: 5px solid var(--navy-blue);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
             text-align: left;
         }
-        th {
-            background-color: var(--navy-blue);
-            color: var(--pure-white);
+        .form-group label {
+            color: var(--navy-blue);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
-        tr:hover {
-            background-color: #f1f1f1;
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: #fcfcfc;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--metallic-gold);
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .submit-btn {
+            background: var(--metallic-gold);
+            color: var(--navy-blue);
+            border: none;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .submit-btn:hover {
+            background: var(--navy-blue);
+            color: var(--pure-white);
         }
 
         /* Footer */
@@ -80,87 +181,145 @@
             background-color: var(--navy-blue);
             color: var(--pure-white);
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
-            border-top: 4px solid var(--metallic-gold);
+            padding: 3rem 2rem;
+            border-top: 5px solid var(--metallic-gold);
         }
-        footer p {
-            margin: 0;
-            font-weight: bold;
-            color: var(--metallic-gold);
-            font-size: 1.2rem;
+        footer h3 { color: var(--metallic-gold); margin-bottom: 10px; font-size: 1.5rem; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .split-section { flex-direction: column; }
+            nav { flex-direction: column; text-align: center; }
+            nav img { margin: 0 0 10px 0; }
+            .contact-section { padding: 2rem 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Sikh Rifle and Pistol Association</h1>
-        <p>Education • Safety • Community</p>
-    </header>
+    <nav>
+        <img src="srpa-logo.png" alt="SRPA Logo">
+        <h1>Sikh Rifle & Pistol Association</h1>
+    </nav>
+
+    <section class="hero">
+        <h2>Education • Safety • Community</h2>
+        <p>A California Nonprofit Public Benefit Corporation organized exclusively for educational and charitable purposes, promoting responsible firearm ownership.</p>
+    </section>
 
     <div class="container">
         
-        <section class="section-box">
-            <h2>Our Mission</h2>
-            <p>The specific purpose of this corporation is to provide public education and training on firearm safety, proper firearm handling and maintenance, and the historical and technical variations of diverse firearm types, thereby promoting responsible ownership and community safety.</p>
+        <h2 class="section-title">The Foundation of Safety</h2>
+        <section class="split-section">
+            <div class="split-text">
+                <h3>The 4 Universal Rules</h3>
+                <p>Education is your first line of defense. Commit these rules to memory before you ever handle a firearm.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rule</th>
+                            <th>Translation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Assume it's loaded</strong></td>
+                            <td>ਹਮੇਸ਼ਾ ਇਹ ਮੰਨ ਕੇ ਚੱਲੋ ਕਿ ਹਥਿਆਰ ਲੋਡ (Loaded) ਹੈ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Safe direction</strong></td>
+                            <td>ਪਿਸਟਲ ਦਾ ਮੂੰਹ ਹਮੇਸ਼ਾ ਸੁਰੱਖਿਅਤ ਦਿਸ਼ਾ ਵੱਲ ਰੱਖੋ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Trigger discipline</strong></td>
+                            <td>ਆਪਣੀ ਉਂਗਲ ਟਰਿੱਗਰ (Trigger) ਤੋਂ ਦੂਰ ਰੱਖੋ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Know your target</strong></td>
+                            <td>ਆਪਣੇ ਨਿਸ਼ਾਨੇ ਅਤੇ ਉਸਦੇ ਪਿੱਛੇ ਦੀ ਜਗ੍ਹਾ ਨੂੰ ਜਾਣੋ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="split-image">
+                <img src="rule-4.jpg" alt="Rule 4 Safety Infographic">
+            </div>
         </section>
 
-        <section class="section-box">
-            <h2>Who We Are</h2>
-            <p>We are a California Nonprofit Public Benefit Corporation organized exclusively for educational and charitable purposes under Section 501(c)(3) of the Internal Revenue Code.</p>
+        <h2 class="section-title">Educational Resources</h2>
+        <section class="grid">
+            
+            <div class="card">
+                <img src="handgun-guide.jpg" alt="First Handgun Buying Guide">
+                <div class="card-content">
+                    <h3>First Handgun Guide</h3>
+                    <p>Don't just guess—make an informed decision. Learn how to choose the right caliber and model for your needs.</p>
+                    <a href="#" class="btn">View Guide</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="grip-guide.jpg" alt="Proper Pistol Grip Form">
+                <div class="card-content">
+                    <h3>Proper Pistol Grip</h3>
+                    <p>Master the modern "Thumbs Forward" grip. Mitigate muzzle rise and establish a rock-solid foundation.</p>
+                    <a href="#" class="btn">View Guide</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="ammo-chart.jpg" alt="Handgun Caliber Comparison">
+                <div class="card-content">
+                    <h3>Caliber Ballistics</h3>
+                    <p>Understand the science behind the tool. A comparative breakdown of bullet weights, dimensions, and velocities.</p>
+                    <a href="#" class="btn">View Chart</a>
+                </div>
+            </div>
+
         </section>
 
-        <section class="section-box">
-            <h2>The 4 Rules of Safety</h2>
-            <p>Education is your first line of defense. Memorize these rules before you ever touch a firearm:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rule</th>
-                        <th>English Focus</th>
-                        <th>Punjabi Translation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>1</strong></td>
-                        <td>Assume it's loaded</td>
-                        <td>ਹਮੇਸ਼ਾ ਇਹ ਮੰਨ ਕੇ ਚੱਲੋ ਕਿ ਹਥਿਆਰ ਲੋਡ (Loaded) ਹੈ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2</strong></td>
-                        <td>Safe direction</td>
-                        <td>ਪਿਸਟਲ ਦਾ ਮੂੰਹ ਹਮੇਸ਼ਾ ਸੁਰੱਖਿਅਤ ਦਿਸ਼ਾ ਵੱਲ ਰੱਖੋ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>3</strong></td>
-                        <td>Trigger discipline</td>
-                        <td>ਆਪਣੀ ਉਂਗਲ ਟਰਿੱਗਰ (Trigger) ਤੋਂ ਦੂਰ ਰੱਖੋ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>4</strong></td>
-                        <td>Know your target</td>
-                        <td>ਆਪਣੇ ਨਿਸ਼ਾਨੇ ਅਤੇ ਉਸਦੇ ਪਿੱਛੇ ਦੀ ਜਗ੍ਹਾ ਨੂੰ ਜਾਣੋ</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section class="section-box">
-            <h2>Resources & Guides</h2>
-            <p>Access our free educational resources to build a strong foundation of safety and discipline.</p>
-            <ul>
-                <li><a href="#" style="color: var(--navy-blue); font-weight: bold;">First Handgun Buying Guide (PDF Placeholder)</a></li>
-                <li><a href="#" style="color: var(--navy-blue); font-weight: bold;">Proper Pistol Grip Form (Infographic Placeholder)</a></li>
-            </ul>
+        <h2 class="section-title">Membership & Inquiries</h2>
+        <section class="contact-section">
+            <p style="text-align: center; margin-bottom: 2rem; color: #555; font-size: 1.1rem;">
+                Interested in joining the Sikh Rifle and Pistol Association or have a question about our upcoming classes? Send us a message below.
+            </p>
+            
+            <form class="contact-form" action="YOUR_FORMSPREE_LINK_HERE" method="POST">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="inquiry-type">Inquiry Type</label>
+                    <select id="inquiry-type" name="inquiry-type">
+                        <option value="Membership">Membership Information</option>
+                        <option value="Training">Upcoming Training & Classes</option>
+                        <option value="General">General Question</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </section>
 
     </div>
 
     <footer>
-        <p>ਸੁਰੱਖਿਅਤ ਰਹੋ, ਜ਼ਿੰਮੇਵਾਰ ਬਣੋ!</p>
+        <h3>ਸੁਰੱਖਿਅਤ ਰਹੋ, ਜ਼ਿੰਮੇਵਾਰ ਬਣੋ!</h3>
         <p>STAY SAFE, BE RESPONSIBLE!</p>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: var(--steel-gray);">© 2026 Sikh Rifle and Pistol Association. A 501(c)(3) Nonprofit.</p>
     </footer>
 
 </body>
