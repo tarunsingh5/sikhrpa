@@ -115,67 +115,6 @@
         }
         .btn:hover { background: var(--metallic-gold); color: var(--navy-blue); }
 
-        /* Contact Form */
-        .contact-section {
-            background: var(--pure-white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            margin-bottom: 4rem;
-            border-top: 5px solid var(--navy-blue);
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-        .form-group label {
-            color: var(--navy-blue);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        .form-group input, .form-group textarea, .form-group select {
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
-            background-color: #fcfcfc;
-        }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--metallic-gold);
-            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        .submit-btn {
-            background: var(--metallic-gold);
-            color: var(--navy-blue);
-            border: none;
-            padding: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .submit-btn:hover {
-            background: var(--navy-blue);
-            color: var(--pure-white);
-        }
-
         /* Footer */
         footer {
             background-color: var(--navy-blue);
@@ -191,7 +130,6 @@
             .split-section { flex-direction: column; }
             nav { flex-direction: column; text-align: center; }
             nav img { margin: 0 0 10px 0; }
-            .contact-section { padding: 2rem 1rem; }
         }
     </style>
 </head>
@@ -276,42 +214,6 @@
                 </div>
             </div>
 
-        </section>
-
-        <h2 class="section-title">Membership & Inquiries</h2>
-        <section class="contact-section">
-            <p style="text-align: center; margin-bottom: 2rem; color: #555; font-size: 1.1rem;">
-                Interested in joining the Sikh Rifle and Pistol Association or have a question about our upcoming classes? Send us a message below.
-            </p>
-            
-            <form class="contact-form" action="YOUR_FORMSPREE_LINK_HERE" method="POST">
-                
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                </div>
-                
-                <div class="form-group">
-                    <label for="inquiry-type">Inquiry Type</label>
-                    <select id="inquiry-type" name="inquiry-type">
-                        <option value="Membership">Membership Information</option>
-                        <option value="Training">Upcoming Training & Classes</option>
-                        <option value="General">General Question</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
         </section>
 
     </div>
